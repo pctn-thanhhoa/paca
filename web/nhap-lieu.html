@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Nhập số liệu đánh giá PCTNLPTC năm 2026</title>
+<link rel="stylesheet" href="assets/common.css">
+</head>
+<body>
+<header class="top">
+  <div class="t1">Thanh tra tỉnh Thanh Hóa · Bộ Chỉ số theo Quyết định số 47/2026/QĐ-TTg</div>
+  <h1>Nhập số liệu, tài liệu minh chứng đánh giá công tác PCTNLPTC năm 2026<span id="h1DonVi"></span></h1>
+</header>
+<div class="wrap">
+
+  <div class="card" id="loginCard">
+    <h2>Đăng nhập</h2>
+    <p class="muted">Kỳ số liệu: <b id="kySoLieu">...</b> · Hạn gửi: <b id="hanNop">...</b>.
+      Mỗi đơn vị dùng <b>mã truy cập</b> do Thanh tra tỉnh cấp; không chia sẻ mã ra ngoài đơn vị.</p>
+    <div class="grid" id="loginBox">
+      <div><label for="txtTim">Tìm đơn vị (gõ một phần tên)</label><input id="txtTim" type="search" autocomplete="off" placeholder="Ví dụ: Hoằng, Nội vụ, Thanh tra"></div>
+      <div><label for="selDonVi">Đơn vị</label><select id="selDonVi"><option>Đang tải danh sách...</option></select></div>
+      <div><label for="txtMa">Mã truy cập</label><input id="txtMa" type="password" autocomplete="off" maxlength="20"></div>
+      <div style="align-self:end"><button class="btn" id="btnLogin" type="button">Đăng nhập</button></div>
+    </div>
+    <div id="loginNote"></div>
+    <p class="muted" style="margin:8px 0 0">Muốn tham khảo đơn vị khác: chọn đơn vị bất kỳ, nhập mã <b>000000</b> để <b>xem nội dung đơn vị đó đã gửi</b> (chỉ xem, không nhập, không gửi được dữ liệu).</p>
+    <div class="hotro"><a href="https://zalo.me/g/ksevyr941" target="_blank" rel="noopener"><img src="assets/zalo-qr.png" alt="Mã QR nhóm Zalo hỗ trợ" width="120" height="120"></a>
+      <div>Vướng mắc liên hệ nhóm Zalo <b>"Nhóm nhập liệu TD, GQKNTC, TT, Thanh tra CQ 2 cấp"</b>:<br><a href="https://zalo.me/g/ksevyr941" target="_blank" rel="noopener">https://zalo.me/g/ksevyr941</a><br>
+      <span class="muted">(hoặc dùng Zalo quét mã QR bên cạnh để vào nhóm)</span></div></div>
+  </div>
+
+  <div id="formArea" class="hidden">
+    <div class="card">
+      <div class="tools" style="justify-content:space-between">
+        <h2 style="margin:0" id="dvTen"></h2>
+        <div class="tools"><span id="dvTrangThai"></span><button class="btn nho phu" id="btnLogout" type="button">Đăng xuất</button></div>
+      </div>
+      <p class="muted" style="margin:6px 0 0">Kỳ số liệu: <b id="kySoLieu2"></b> · Hạn gửi Thanh tra tỉnh: <b id="hanNop2"></b>.</p>
+      <div id="scopeNote"></div>
+      <div id="lockNote"></div>
+      <div id="draftNote"></div>
+      <div class="grid" style="margin-top:10px">
+        <div><label for="nguoiNhap">Họ tên người nhập liệu <span class="req">*</span></label><input id="nguoiNhap" maxlength="100"></div>
+        <div><label for="dienThoai">Điện thoại <span class="req">*</span></label><input id="dienThoai" maxlength="30" inputmode="tel"></div>
+        <div><label for="email">Thư điện tử công vụ</label><input id="email" maxlength="100" type="email"></div>
+      </div>
+      <div class="tools" style="margin-top:6px">
+        <button class="btn nho vien" id="btnExpand" type="button">Mở/đóng tất cả</button>
+        <button class="btn nho vien" id="btnMissing" type="button">Hiện tiêu chí chưa nhập</button>
+        <button class="btn nho vien" id="btnWord" type="button">Xuất biểu Word</button>
+        <div style="flex:1;min-width:200px"><span class="muted" id="progTxt"></span><div class="progress"><div id="progBar" style="width:0"></div></div></div>
+      </div>
+    </div>
+    <div id="criteria"></div>
+    <div id="vuViecBox"></div>
+  </div>
+</div>
+
+<div class="net-off hidden" id="netNote">Máy đang mất kết nối mạng. Số liệu nhập tiếp vẫn được lưu nháp trên máy này; khi có mạng, bấm "Gửi dữ liệu".</div>
+<div class="footer-bar hidden" id="footer"><div class="in">
+  <div class="msg" id="msg"></div>
+  <span id="dirty" class="muted hidden"><span class="dirty-dot"></span>Có thay đổi chưa gửi</span>
+  <button class="btn xanhla" id="btnSave" type="button">Gửi dữ liệu</button>
+</div></div>
+
+<script src="assets/config.js"></script>
+<script src="../gas/04_Scoring.js"></script>
+<script src="../gas/05_Form.js"></script>
+<script src="assets/phieu.js"></script>
+<script src="assets/common.js"></script>
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Rà soát số liệu PCTNLPTC năm 2026 - Tổ công tác đánh giá</title>
+<link rel="stylesheet" href="assets/common.css">
+<style>
+  table.ds{border-collapse:collapse;width:100%;font-size:14px;background:#fff}
+  table.ds th,table.ds td{border-bottom:1px solid #e2e8f0;padding:7px 8px;text-align:left;vertical-align:top}
+  table.ds th{background:#eff6ff;position:sticky;top:0;font-size:13px}
+  #dsBody tr{cursor:pointer}
+  tr.c1 td{background:#dbeafe;font-weight:700}tr.c2 td{background:#f1f5f9;font-weight:600}
+  td.cb{font-size:12.5px;color:#92400e}table.ds tbody tr:hover{background:#f8fafc}
+  td.so{text-align:center;white-space:nowrap}
+  .thu-muc-mc{margin-top:10px;padding:8px 12px;border:1px solid #c7d7ee;border-left:4px solid #1f5fa8;border-radius:6px;background:#f3f7fc}
+  #bangDiem{table-layout:fixed;width:100%}#bangDiem td.ct,#bangDiem td.mc{font-size:12.5px}#bangDiem td.mc a{white-space:nowrap}
+  #bangDiem th:nth-child(1){width:21%}#bangDiem th:nth-child(2){width:27%}#bangDiem th:nth-child(3){width:22%}#bangDiem th:nth-child(4),#bangDiem th:nth-child(5){width:6%}#bangDiem th:nth-child(6){width:18%}
+  .kv{font-size:14px;margin:3px 0}.kv b{font-weight:600}
+  .td-box{background:#f8fafc;border:1px solid #cbd5e1;border-radius:8px;padding:10px 12px;margin-top:10px}
+  .td-box .row{display:grid;grid-template-columns:200px 1fr;gap:10px}
+  @media (max-width:700px){.td-box .row{grid-template-columns:1fr}}
+  .tong{font-size:15px}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="t1">UBND tỉnh Thanh Hóa · Tổ công tác đánh giá công tác PCTNLPTC · Nội bộ</div>
+  <h1>Rà soát số liệu, tài liệu minh chứng đánh giá công tác PCTNLPTC năm 2026</h1>
+</header>
+<div class="wrap">
+
+  <div class="card" id="loginCard">
+    <h2>Đăng nhập rà soát</h2>
+    <p class="muted">Dành cho thành viên <b>Tổ công tác đánh giá</b> do UBND tỉnh thành lập, thực hiện rà soát, đôn đốc các đơn vị cung cấp số liệu, tài liệu minh chứng. Dùng <b>mã rà soát dùng chung</b> của Tổ; họ tên được ghi vào kết quả rà soát và nhật ký.</p>
+    <div class="grid">
+      <div><label for="tdTen">Họ tên thành viên Tổ công tác đánh giá</label><input id="tdTen" maxlength="60" autocomplete="name"></div>
+      <div><label for="tdMa">Mã rà soát</label><input id="tdMa" type="password" maxlength="20" autocomplete="off"></div>
+      <div style="align-self:end"><button class="btn" id="btnLogin" type="button">Đăng nhập</button></div>
+    </div>
+    <div id="loginNote"></div>
+  </div>
+
+  <div id="main" class="hidden">
+    <div class="card">
+      <div class="tools" style="justify-content:space-between">
+        <div class="tong" id="tongDiem"></div>
+        <div class="tools">
+          <span class="muted" id="tdNguoi"></span>
+          <button class="btn nho vien" id="btnReload" type="button">Làm mới</button>
+          <button class="btn nho xanhla" id="btnPhuBieu" type="button">Xuất phụ biểu (bản chốt)</button>
+          <button class="btn nho phu" id="btnLogout" type="button">Đăng xuất</button>
+        </div>
+      </div>
+      <div id="pbNote"></div>
+      <div id="thuMucMC" class="thu-muc-mc"></div>
+      <div class="tools" style="margin-top:10px">
+        <button class="btn nho" id="tabDonVi" type="button">Rà soát đơn vị</button>
+        <button class="btn nho vien" id="tabTinh" type="button">Số liệu cấp tỉnh và bảng điểm toàn tỉnh</button>
+      </div>
+    </div>
+
+    <div id="tinhView" class="hidden">
+      <div class="card">
+        <h2>Nội dung cấp tỉnh do Tổ công tác đánh giá xác định</h2>
+        <p class="muted" style="margin:0">Theo Phụ lục II QĐ 47/2026/QĐ-TTg, số liệu toàn tỉnh nhóm A.2, B, C, D được <b>tổng hợp tự động</b> từ sở, xã và đơn vị đầu mối.
+          Riêng các nội dung dưới đây đánh giá việc của chính UBND tỉnh hoặc phải kết luận (A.1, Đ.2 phần của UBND tỉnh, E, Lưu ý 3), không tổng hợp được từ đơn vị:
+          Tổ công tác đánh giá căn cứ văn bản UBND tỉnh đã ban hành để xác định, ghi văn bản minh chứng và tải tệp. Họ tên người cập nhật được ghi lại.</p>
+      </div>
+      <div id="tinhItems"></div>
+      <div class="nhom1">BẢNG TỰ CHẤM ĐIỂM TẠM TÍNH TOÀN TỈNH THEO MẪU PHỤ LỤC 02 (tổng hợp tự động - chỉ xem; bấm tên đơn vị để mở minh chứng)</div>
+      <div class="card" style="padding:0;overflow:auto;max-height:75vh">
+        <table class="ds" id="bangDiem"></table>
+      </div>
+      <p class="muted">Muốn điều chỉnh điểm một tiêu chí (trường hợp đặc biệt), ghi ở sheet DIEU_CHINH kèm lý do; lý do được đưa vào cột Ghi chú của Phụ lục 02.</p>
+    </div>
+
+    <div id="listView">
+      <div class="card">
+        <div class="grid">
+          <div><label for="fLoai">Loại đơn vị</label><select id="fLoai"><option value="">Tất cả</option><option value="SO">Sở, ban, ngành</option><option value="XA">Xã, phường</option></select></div>
+          <div><label for="fTT">Trạng thái</label><select id="fTT"><option value="">Tất cả</option><option>Chưa gửi</option><option>Đang nhập</option><option>Đã gửi</option></select></div>
+          <div><label for="fTim">Tìm đơn vị</label><input id="fTim" placeholder="Tên hoặc mã đơn vị"></div>
+          <div style="align-self:end"><label style="font-weight:400"><input type="checkbox" id="fCho" style="width:auto"> Chỉ đơn vị còn tiêu chí chờ rà soát</label></div>
+        </div>
+        <p class="muted" id="listSum" style="margin-bottom:0"></p>
+      </div>
+      <div class="card" style="padding:0;overflow:auto;max-height:70vh">
+        <table class="ds"><thead><tr><th>Mã</th><th>Đơn vị</th><th>Trạng thái</th><th>Đã nhập</th><th>Chờ rà soát</th><th>Đã rà soát</th><th>Yêu cầu bổ sung</th><th>Tệp</th><th>Vụ việc</th><th>Cập nhật</th></tr></thead>
+          <tbody id="dsBody"></tbody></table>
+      </div>
+    </div>
+
+    <div id="detailView" class="hidden">
+      <div class="card">
+        <div class="tools" style="justify-content:space-between">
+          <button class="btn nho vien" id="btnBack" type="button">← Danh sách đơn vị</button>
+          <div class="tools">
+            <button class="btn nho vien" id="btnWord" type="button">Xuất biểu Word</button>
+          </div>
+        </div>
+        <h2 style="margin:10px 0 4px" id="dTen"></h2>
+        <div id="dInfo" class="muted"></div>
+        <div class="tools" style="margin-top:8px">
+          <button class="btn nho vien" id="btnExpand" type="button">Mở/đóng tất cả</button>
+          <button class="btn nho vien" id="btnChoTD" type="button">Hiện tiêu chí chờ rà soát</button>
+        </div>
+      </div>
+      <div id="dCriteria"></div>
+      <div id="dVuViec"></div>
+    </div>
+  </div>
+</div>
+
+<div class="footer-bar hidden" id="footer"><div class="in"><div class="msg" id="msg"></div></div></div>
+
+<script src="assets/config.js"></script>
+<script src="../gas/04_Scoring.js"></script>
+<script src="../gas/05_Form.js"></script>
+<script src="../gas/06_PhuLuc02.js"></script>
+<script src="assets/phieu.js"></script>
+<script src="assets/tham-dinh.js"></script>
+</body>
+</html>
