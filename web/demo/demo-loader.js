@@ -79,7 +79,7 @@
         bang: res.rows.map(function (r) { return Object.assign({}, r, { soDat: r.dsDat.length, soChua: r.dsChuaDat.length }); }),
         pl02: pacaPL02Rows(res.rows, PACA_PL2, pacaMinhChungMap(Object.keys(d.files).reduce(function (a, u) {
           Object.keys(d.files[u]).forEach(function (ma) { d.files[u][ma].forEach(function (f) { a.push({ maDv: u, ma: ma, url: f.url || '#' }); }); }); return a;
-        }, []), PACA_UNITS_SEED)) };
+        }, []), PACA_UNITS_SEED), Object.keys(d.tinh).reduce(function (a, ma) { if (d.tinh[ma].vanBan) a[ma] = d.tinh[ma].vanBan; return a; }, {})) };
     }
     if (req.action === 'tdLuuTinh') {
       var ng = 'Thử nghiệm - ' + now();
