@@ -324,7 +324,7 @@
       if (!r.rule) return '<tr class="' + cls + '"><td colspan="3">' + esc(r.ten) + '</td><td class="so">' + fmtNum(r.max) + '</td><td class="so">' + diem + '</td><td></td></tr>';
       var c = pacaCauMinhChung(r.minhChung, r.tuMau), mc = '', p = 0;
       c.links.forEach(function (l) {
-        mc += esc(c.text.slice(p, l.start)) + (l.url !== '#' ? '<a href="' + esc(l.url) + '" target="_blank" rel="noopener">' + esc(c.text.slice(l.start, l.end)) + '</a>' : esc(c.text.slice(l.start, l.end)));
+        mc += esc(c.text.slice(p, l.start)) + (l.url !== '#' ? '<a href="' + esc(l.url) + '"' + (l.end - l.start <= 60 ? ' class="dv"' : '') + ' target="_blank" rel="noopener">' + esc(c.text.slice(l.start, l.end)) + '</a>' : esc(c.text.slice(l.start, l.end)));
         p = l.end;
       });
       mc += esc(c.text.slice(p));
